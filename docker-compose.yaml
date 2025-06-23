@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    env_file:
+      - .env
+    command: gunicorn backend.api.main:app -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:80 --workers 4
+    ports:
+      - "8000:80"
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: always
+    depends_on:
+      - db
+
+  db:
+    image: timescale/timescaledb:latest-pg15
+    env_file:
+      - .env
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "5430:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

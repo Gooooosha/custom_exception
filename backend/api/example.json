@@ -1,0 +1,121 @@
+{
+  "envelope_headers": {
+    "event_id": "ca841804dd1848d981bce65dc64a5f8d",
+    "sent_at": "2025-06-01T20:43:44.835809Z",
+    "trace": {
+      "trace_id": "fa0268f202044c8fbb5ffa8f8b9867b6",
+      "environment": "production",
+      "release": "a8a863c87726057b5bf30236baa318fc3e3580a9",
+      "public_key": "df5f76047729f0edcba55517667ea2e5",
+      "sample_rate": "1.0"
+    }
+  },
+  "items": [
+    {
+      "item_header": {
+        "type": "event",
+        "content_type": "application/json",
+        "length": 1451
+      },
+      "payload": {
+        "level": "error",
+        "exception": {
+          "values": [
+            {
+              "mechanism": {
+                "type": "generic",
+                "handled": true
+              },
+              "module": null,
+              "type": "ZeroDivisionError",
+              "value": "division by zero",
+              "stacktrace": {
+                "frames": [
+                  {
+                    "filename": "test.py",
+                    "abs_path": "F:\\Projects\\grafana-deploy\\backend\\test.py",
+                    "function": "test",
+                    "module": "__main__",
+                    "lineno": 13,
+                    "pre_context": [
+                      "",
+                      "",
+                      "",
+                      "def test():",
+                      "    try:"
+                    ],
+                    "context_line": "        1 / 0",
+                    "post_context": [
+                      "    except Exception as e:",
+                      "        sentry_sdk.capture_exception(e)",
+                      "",
+                      "",
+                      "test()"
+                    ],
+                    "vars": {
+                      "e": "ZeroDivisionError('division by zero')"
+                    },
+                    "in_app": true
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "event_id": "ca841804dd1848d981bce65dc64a5f8d",
+        "timestamp": "2025-06-01T20:43:44.832353Z",
+        "contexts": {
+          "trace": {
+            "trace_id": "fa0268f202044c8fbb5ffa8f8b9867b6",
+            "span_id": "b8de8ae881d2cc2f",
+            "parent_span_id": null
+          },
+          "runtime": {
+            "name": "CPython",
+            "version": "3.12.6",
+            "build": "3.12.6 (tags/v3.12.6:a4a2d2b, Sep  6 2024, 20:11:23) [MSC v.1940 64 bit (AMD64)]"
+          }
+        },
+        "transaction_info": {},
+        "breadcrumbs": {
+          "values": []
+        },
+        "extra": {
+          "sys.argv": [
+            "F:\\Projects\\grafana-deploy\\backend\\test.py"
+          ]
+        },
+        "modules": {
+          "certifi": "2025.4.26",
+          "pip": "24.2",
+          "sentry-sdk": "2.27.0",
+          "urllib3": "2.4.0"
+        },
+        "release": "a8a863c87726057b5bf30236baa318fc3e3580a9",
+        "environment": "production",
+        "server_name": "Gosha",
+        "sdk": {
+          "name": "sentry.python",
+          "version": "2.27.0",
+          "packages": [
+            {
+              "name": "pypi:sentry-sdk",
+              "version": "2.27.0"
+            }
+          ],
+          "integrations": [
+            "argv",
+            "atexit",
+            "dedupe",
+            "excepthook",
+            "logging",
+            "modules",
+            "stdlib",
+            "threading"
+          ]
+        },
+        "platform": "python"
+      }
+    }
+  ]
+}
